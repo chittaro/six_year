@@ -17,7 +17,6 @@ public:
     void asciiToText();
     void textToFile();
     void printSecrets();
-    void encryptText(vector<int> clearText);
 
 
 private:

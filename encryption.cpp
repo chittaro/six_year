@@ -62,6 +62,7 @@ void HGF::textToFile(){
 
 
 void HGF::printSecrets(){
+    
     cout << "secret nums: ";
     for (int val: secretThang) cout << val << " ";
     
@@ -73,30 +74,12 @@ void HGF::printSecrets(){
 
 void HGF::decryptText(){
 
-
     for (int i = 0; i < secretThang.size(); i++){
         int exp = 1;
         for (int j = 0; j < d; j++) exp = (exp * secretThang[i]) % n;
         secretThang[i] = exp;
 
     }
-
-
-}
-
-
-// DELETE
-void HGF::encryptText(vector<int> clearText){
-
-    vector<int> encrypted;
-    for (int num: clearText){
-        int exp = 1;
-        for (int i = 0; i < e; i++) exp = (exp * num) % n;
-        encrypted.push_back(exp);
-    }
-
-    for (int val : encrypted) cout << val << " ";
-    cout << endl;
 
 }
 
