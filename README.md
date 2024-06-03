@@ -19,7 +19,7 @@ Do act with haste! These special numbers must be decoded by **7:15 p.m.** sharp 
 The RSA encryption scheme is one in which the encryptor, say person D, **randomly** selects a series of numbers that the encryption calculations (described in the second paragraph) will revolve around. First, D 
 picks a number `n = (p * q)`, where `p` and `q` are both prime numbers. Then, D picks a number `e` such that `e` is coprime to `(p - 1) * (q - 1)`. Lastly, D picks a secret key `d` in some special way. Our records do not indicate how though... 
 
-Using these parameters, anyone other person P, can send D a secret message `m` by performing the following calculation: `c = m^e (mod n)`. D can then decrypt by performing `m = c^d (mod n)`. With [cool math](https://www.coolmathgames.com/) and such, this somehow decrypts the original message.
+Using these parameters, any other person P, can send D a secret message `m` by performing the following calculation: `c = m^e (mod n)`. D can then decrypt by performing `m = c^d (mod n)`. With [cool math](https://www.coolmathgames.com/) and such, this somehow decrypts the original message.
 
 #### Darco's RSA
 
@@ -42,5 +42,5 @@ and run the code with
 ```
 #### Hint
 
-The could should be crackable only by editing the main file, however, the other files should be inspected for critical clues about the encryption scheme.
+The code should be crackable only by editing the main file, however, inspect the other files for critical clues about how the encryption/decryption process works.
 
