@@ -6,6 +6,7 @@
 using namespace std;
 
 
+// Reads input file into vector
 void HGF::readSecret(){
 
     ifstream file("ciphertexts/secret_schmecret.txt");
@@ -27,21 +28,14 @@ void HGF::readSecret(){
 
 }
 
+// Converts from numbers to letters
 void HGF::asciiToText(){
 
     for (int val: secretThang) secretLetters.push_back(static_cast<char>(val));
 
 }
 
-void HGF::caesarShift(int shift){
-    
-    for (char& letter: secretLetters) {
-        letter = letter - shift;
-        if (letter != ' ' && letter < 'a') letter += 26;
-    }
-
-}
-
+// Writes decrypted output to a file
 void HGF::textToFile(){
 
     ofstream file("ciphertexts/gf_too_smart.txt");
@@ -51,7 +45,6 @@ void HGF::textToFile(){
             if (val != '4'){
                 file << val;
             }
-            file << " ";
         }
 
     }
@@ -60,7 +53,7 @@ void HGF::textToFile(){
 
 }
 
-
+// Prints current state of numbers or letters into terminal (use for debugging)
 void HGF::printSecrets(){
     
     cout << "secret nums: ";
@@ -72,10 +65,13 @@ void HGF::printSecrets(){
 
 }
 
+// RSA decryption
 void HGF::decryptText(){
 
     for (int i = 0; i < secretThang.size(); i++){
         int exp = 1;
+
+        // this line computes m = c^d (mod n)
         for (int j = 0; j < d; j++) exp = (exp * secretThang[i]) % n;
         secretThang[i] = exp;
 
@@ -83,11 +79,22 @@ void HGF::decryptText(){
 
 }
 
+// Calculates a number that is coprime to inputs e and pq_
 int HGF::coprimeCalc(int e, int pq_){
 
     for (int i = 0; i < 1000; i++){
         if ((e * i) % pq_ == 1) return i;
     }
     return -1;
+
+}
+
+// Bundles all functions together bc dgaf
+void HGF::doDecryption(){
+
+    readSecret();
+    decryptText();
+    asciiToText();
+    textToFile();
 
 }
