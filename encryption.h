@@ -17,11 +17,11 @@ public:
     void asciiToText();
     void textToFile();
     void printSecrets();
+    int coprimeCalc(int e, int pq_);
 
 
 private:
 
-    int coprimeCalc(int e, int pq_);
 
     vector<int> secretThang;
     vector<char> secretLetters;

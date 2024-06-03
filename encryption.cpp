@@ -8,7 +8,7 @@ using namespace std;
 
 void HGF::readSecret(){
 
-    ifstream file("secret_schmecret.txt");
+    ifstream file("ciphertexts/secret_schmecret.txt");
     
     if (file.is_open()){
 
@@ -44,7 +44,7 @@ void HGF::caesarShift(int shift){
 
 void HGF::textToFile(){
 
-    ofstream file("gf_too_smart.txt");
+    ofstream file("ciphertexts/gf_too_smart.txt");
     if (file.is_open()){
 
         for (char val: secretLetters){
